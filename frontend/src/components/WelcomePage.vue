@@ -1,12 +1,12 @@
 <template>
-    <div class="bg-slate-700 text-white flex flex-col justify-center items-center gap-10">
+    <div class="bg-slate-700 text-white flex flex-col items-center gap-10">
         <h1 class="text-3xl mt-20">
             Welcome to Pizza App!
         </h1>
         <h2 class="text-xl">
             Find a pizza of your liking, place an order and we'll do the rest!
         </h2>
-        <section class="overflow-hidden text-gray-700 w-2/3">
+        <section class="overflow-hidden text-gray-700 w-3/5">
             <div class="container px-5 py-2 mx-auto lg:pt-12 lg:px-32">
               <div class="flex flex-wrap -m-1 md:-m-2">
                 <div class="flex flex-wrap w-1/3">
