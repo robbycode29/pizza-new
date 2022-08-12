@@ -15,8 +15,17 @@ Including another URLconf
 """
 from django.urls import path, include
 from django.contrib import admin
+from rest_framework import routers
+
+from pizza.views import UserViewSet
+
+router = routers.DefaultRouter()
+
+router.register(r'users', UserViewSet)
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/auth/', include('pz_auth.urls'))
+
+    path('api/', include(router.urls)),
 ]

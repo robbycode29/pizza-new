@@ -13,20 +13,25 @@ import pizzaListState from './store/pizzaListState'
 import cartHandler from './store/cartHandler'
 import orderHandler from './store/orderHandler'
 
+import auth from './store/auth'
+
 Vue.use(VueRouter)
 Vue.use(Vuex)
 
-const router = new VueRouter({
-  mode: 'history',
-  routes: routes
-})
+
 
 const store = new Vuex.Store({
   modules: {
     pizzaListState,
     cartHandler,
     orderHandler,
+    auth,
   }
+})
+
+const router = new VueRouter({
+  mode: 'history',
+  routes: routes
 })
 
 Vue.config.productionTip = false
@@ -36,3 +41,5 @@ new Vue({
   store,
   render: h => h(App),
 }).$mount('#app')
+
+
