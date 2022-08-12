@@ -18,8 +18,8 @@
                 </div>
             </div>
         </div>
-        <div class="bg-slate-700 h-fit flex justify-center w-full">
-            <div class="w-11/12 mt-24 pb-28 bg-slate-500 rounded-2xl flex flex-col items-center gap-10">
+        <div class="bg-slate-700 h-full flex justify-center w-full">
+            <div class="w-11/12 h-fit mt-24 pb-28 bg-slate-500 rounded-2xl flex flex-col items-center gap-10">
                 <h1 class="mt-12 text-white font-semibold text-2xl">Menu</h1>
                 <table class="border-2 mx-20 text-white font-semibold">
                     <thead class="border-2">
