@@ -1,7 +1,6 @@
 <template>
   <div id="app" class="h-screen w-screen">
     <NavBar></NavBar>
-    <!-- <router-view></router-view> -->
     <component :is="compName"/>
   </div>
 </template>
@@ -40,6 +39,7 @@ export default {
       else if (this.getUser.is_admin) {
         return AdminPage
       }
+      else if (this.getUser.password == null) return LoginPage
       return LoginPage
     }
   },

@@ -27,6 +27,16 @@ const actions = {
         const response = await auth.getAllUsers()
         const user = response.find(user => user.username === userData.username && user.password === userData.password)
         commit('setUser', user)
+    },
+    logout({ commit }) {
+        let user = {
+            id: null,
+            username: null,
+            email: null,
+            password: null,
+            is_admin: false,
+        }
+        commit('setUser', user)
     }
 }
 
