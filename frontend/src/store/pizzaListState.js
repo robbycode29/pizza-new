@@ -1,4 +1,5 @@
-import pizzas from './pizzas';
+// import pizzas from './pizzas';
+import api from '../apis/pizzas';
 
 const state = {
     pizzas: [],
@@ -11,8 +12,38 @@ const mutations = {
 }
 
 const actions = {
-    fetchPizzas({ commit }) {
-        commit('setPizzas', pizzas)
+    fetchPizzas: ({ commit }) => {
+        api.fetchPizzas().then(pizzas => {
+            let pizzasArray = [];
+            pizzas.forEach(pizza => {
+                let newPizza = {
+                    id: parseInt(pizza.id),
+                    name: pizza.name,
+                    price: parseFloat(pizza.price),
+                    image: pizza.image,
+                    ingredients: pizza.ingredients.map(ingredient => {
+                        if (!ingredient.name.includes('Extra'))
+                            return ingredient.name
+                    }),
+                    isExpanded: false,
+                    inCart: false,
+                    nrOfItemsInCart: 0,
+                    extraPrice: 0,
+                    extraIngredients: pizza.ingredients.map(ingredient => {
+                        if (ingredient.name.includes('Extra'))
+                            return {
+                                id: parseInt(ingredient.url.split('/')[ingredient.url.split('/').length -2]),
+                                name: ingredient.name,
+                                price: parseFloat(ingredient.price),
+                                checked: false,
+                            }
+                        
+                    }).filter(element => element !== undefined)
+                }
+                pizzasArray.push(newPizza);
+            })
+            commit('setPizzas', pizzasArray)
+        });
     },
     addPizza({ commit }, input) {
         let pizza = {

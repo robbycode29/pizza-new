@@ -17,11 +17,14 @@ from django.urls import path, include
 from django.contrib import admin
 from rest_framework import routers
 
-from pizza.views import UserViewSet
+from pizza.views import UserViewSet, PizzaViewSet, IngredientViewSet, OrderViewSet
 
 router = routers.DefaultRouter()
 
 router.register(r'users', UserViewSet)
+router.register(r'pizzas', PizzaViewSet)
+router.register(r'ingredients', IngredientViewSet)
+router.register(r'orders', OrderViewSet)
 
 
 urlpatterns = [
